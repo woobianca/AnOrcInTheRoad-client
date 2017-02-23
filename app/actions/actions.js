@@ -22,6 +22,21 @@ export const toggleQuest = (id) => {
   };
 };
 
+export const userLogin = (username, user_pic, auth_id) => {
+  return {
+    type: 'USER_LOGIN',
+    username,
+    user_pic,
+    auth_id,
+  };
+};
+
+export const userLogout = () => {
+  return {
+    type: 'USER_LOGOUT',
+  };
+};
+
 // export const setSelect = (questType) => {
 //   return {
 //     type: 'SET_SELECT',

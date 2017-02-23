@@ -21,6 +21,7 @@ import {
 
 import Router from './navigation/Router';
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
+import Login from './components/Login';
 
 import { Provider } from 'react-redux';
 import reducers from './reducers/index'
@@ -60,7 +61,7 @@ class AppContainer extends React.Component {
     const redirectionURL = `${auth0Domain}/authorize` + this._toQueryString({
       client_id: auth0ClientId,
       response_type: 'token',
-      scope: 'openid name',
+      scope: 'openid nickname picture user_id',
       redirect_uri: redirectUri,
       state: redirectUri,
     });
@@ -80,8 +81,11 @@ class AppContainer extends React.Component {
     }, {});
     const encodedToken = responseObj.id_token;
     const decodedToken = jwtDecoder(encodedToken);
-    const username = decodedToken.name;
-    this.setState({ username });
+    const username = decodedToken.nickname;
+    const user_pic = decodedToken.picture;
+    const auth_id = decodedToken.user_id;
+    this.setState = {username};
+    // return {username, user_pic, auth_id};
   }
 
   _toQueryString(params) {
@@ -116,11 +120,10 @@ class AppContainer extends React.Component {
   render() {
     if (!this.state.username) {
       return (
-        <View style={styles.container}>
-          <Text style={styles.title}>Example: Auth0 login</Text>
-          <Button title="Login with Auth0" onPress={this._loginWithAuth0} />
-        </View>
-      )
+        <Provider store={store}>
+          <Login />
+        </Provider>
+      );
     } else if (this.state.appIsReady) {
       return (
         <Provider store={store}>
@@ -160,6 +163,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default socket;
+export default socket; 
 
 Exponent.registerRootComponent(AppContainer);
