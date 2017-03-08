@@ -108,3 +108,17 @@ export function setQuestFilter(filter) {
     filter,
   };
 }
+
+export function updateParty(party) {
+  return {
+    type: 'UPDATE_PARTY',
+    party,
+  };
+}
+
+export function createInvite(invite) {
+  return {
+    type: 'CREATE_INVITE',
+    invite,
+  };
+}

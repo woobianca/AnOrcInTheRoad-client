@@ -56,8 +56,6 @@ class MapScroll extends React.Component {
     var coord2 = { latitude: lat2, longitude: lng2 };
     return geolib.getDistance(coord1, coord2, acc);
   }
-  
-    
 
   render() {
     var dist = this.calculateDistance(this.props.lat, this.props.lng, this.props.currentQuest.lat, this.props.currentQuest.lng, 100);

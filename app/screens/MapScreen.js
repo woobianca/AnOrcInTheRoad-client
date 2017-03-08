@@ -12,7 +12,6 @@ import {
   Dimensions,
   Modal,
   Animated,
-  TouchableHighlight,
 } from 'react-native';
 import { Components } from 'exponent';
 import Router from '../navigation/Router';

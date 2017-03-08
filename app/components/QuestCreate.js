@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Modal, TouchableHighlight, TextInput, Slider, Picker, ScrollView, Image } from 'react-native';
-import CreateQuestMap from '../screens/MapScreen';
+import { View, Text, StyleSheet, Modal, TouchableOpacity, TextInput, Slider, Picker, ScrollView, Image } from 'react-native';
 import { Font } from 'exponent';
 import MapCreate from './MapQuest';
 import Layout from '../constants/Layout';
@@ -227,7 +226,7 @@ class QuestCreate extends React.Component {
               <Picker.Item label="Battle - Solo" value="addBattleSoloQuest" />
               <Picker.Item label="Battle - Co-op" value="addCoopSoloQuest" />
             </Picker>
-            <TouchableHighlight
+            <TouchableOpacity
               onPress={() => {
                 this.props.onSubmitQuest(
                   this.state.name,
@@ -244,27 +243,27 @@ class QuestCreate extends React.Component {
               style={styles.submitButton}
             >
               <Text style={styles.buttonText}>Add Quest</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
+            </TouchableOpacity>
+            <TouchableOpacity
               onPress={() => {
                 this.setModalVisible(!this.state.modalVisible);
               }}
               style={styles.closeButton}
             >
               <Text style={styles.buttonText}>Cancel</Text>
-            </TouchableHighlight>
+            </TouchableOpacity>
           </ScrollView>
         </Image> 
         </Modal>
         <View>
-          <TouchableHighlight
+          <TouchableOpacity
             onPress={() => {
               this.setModalVisible(true);
             }}
             style={styles.addButton}
           >
             <Text style={styles.buttonText}>Create New Quest</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </View>
     );

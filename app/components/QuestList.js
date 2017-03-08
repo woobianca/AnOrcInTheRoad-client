@@ -4,6 +4,7 @@ import QuestRow from './QuestRow';
 import QuestCreate from './QuestCreate';
 import socket from '../socket/socket';
 import { updateQuests } from '../actions/actions'
+import Party from '../containers/PartyContainer';
 import geolib from 'geolib';
 
 const styles = StyleSheet.create({
@@ -91,6 +92,7 @@ class QuestList extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.createQuest}>
+          <Party />
           <QuestCreate onSubmitQuest={this.props.onSubmitQuest} user={this.props.user} lat={this.props.lat} lng={this.props.lng} />
         </View>
         <View style={styles.container}>

@@ -51,7 +51,7 @@ import { Font } from 'exponent';
 
 let redirectUri;
 if (Exponent.Constants.manifest.xde) {
-  redirectUri = `exp://69-st6.rewhsu.app.exp.direct/+/redirect`;
+  redirectUri = `exp://hc-yxj.woobianca.app.exp.direct/+/redirect`;
 } else {
     console.log('CONSTANTS MANIFEST ',Exponent.Constants.linkingUri)
   redirectUri = `${Exponent.Constants.linkingUri}/redirect`;
@@ -152,6 +152,7 @@ class AppContainer extends React.Component {
    if (!this.state.name) {
       return (
         <View style={styles.container}>
+        <StatusBar hidden={true} />
           <Image source={require('./assets/images/orc-background.gif')} style={styles.backgroundImage}>
             <View style={styles.title}>
               <Image style={styles.titleImg} source={require('./assets/images/title.png')} />
@@ -168,6 +169,7 @@ class AppContainer extends React.Component {
       return (
         <Provider store={store}>
           <View style={styles.container}>
+            <StatusBar hidden={true} />
             <NavigationProvider router={Router}>
               <StackNavigation id="root" initialRoute={Router.getRoute('rootNavigation')} />
             </NavigationProvider>
